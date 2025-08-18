@@ -1,37 +1,40 @@
-// const logEvents = require('./logEvents');
+import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import dotenv from "dotenv";
+import connectDB from "./utils/db.js";
+import userRoute from "./routes/user.route.js";
+import companyRoute from "./routes/company.route.js";
+import jobRoute from "./routes/job.route.js";
+import applicationRoute from "./routes/application.route.js";
 
-// const EventEmitter = require('events');
+dotenv.config({});
 
-// class MyEmitter extends EventEmitter {};
+const app = express();
 
-// // initialize the project
-// const myEmitter = new MyEmitter();
+// middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    credentials: true
+}
 
-// // add listener for the log event
-// myEmitter.on('log', (msg) => logEvents(msg));
+app.use(cors(corsOptions));
 
-// setTimeout(() => {
-//     // Emit event
-//     myEmitter.emit('log', 'Logevent Emitted!');
-// }, 2000);
+const PORT = process.env.PORT || 3000;
 
-const http =require('https');
-const path = require('path');
-const fs = require('fs');
-const fsPromises = require('fs').promises;
 
-const logEvents = require('./logEvents');
-const EventEmitter = require('events');
-class Emitter extends EventEmitter {
+// api's
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/company", companyRoute);
+app.use("/api/v1/job", jobRoute);
+app.use("/api/v1/application", applicationRoute);
 
-};
 
-const myEmitter = new Emitter();
 
-const PORT = process.env.port || 5300;
-
-const server = http.createServer((req, res) => {
-    console.log(res.url, req.method);
-});
-
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+    connectDB();
+    console.log(`Server running at port ${PORT}`);
+})
