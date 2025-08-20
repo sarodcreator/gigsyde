@@ -1,0 +1,116 @@
+/* ========= VARIABLES ========= */
+:root {
+    --color-text: #F4FDFF;
+    --color-bg: #ff3c00;
+    --color-black: #040403;
+    --color-tertiary: #00455aff;
+
+    /* hover background is lighter shade of --color-bg */
+    --color-bg-hover: #ff693bff;
+
+    /* optional variants */
+    --color-danger: #dc2626;
+    --color-danger-hover: #b91c1c;
+    --color-secondary: #e5e7eb;
+    --color-secondary-hover: #d1d5db;
+}
+
+/* ========= BASE ========= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: none;
+    height: 44px;
+    padding: 0 16px;
+}
+
+/* ========= VARIANTS ========= */
+.btn-default {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: 0 24px;
+}
+
+.btn-default:hover {
+    background-color: var(--color-bg-hover);
+}
+
+.btn-destructive {
+    background-color: var(--color-danger);
+    color: var(--color-text);
+}
+
+.btn-destructive:hover {
+    background-color: var(--color-danger-hover);
+}
+
+.btn-outline {
+    border: 1px solid var(--color-black);
+    background-color: transparent;
+    color: var(--color-black);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-bg-hover);
+    color: var(--color-text);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-black);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary-hover);
+}
+
+.btn-ghost {
+    background: none;
+    color: var(--color-tertiary);
+}
+
+.btn-ghost:hover {
+    background-color: var(--color-bg-hover);
+    color: var(--color-text);
+}
+
+.btn-link {
+    background: none;
+    color: var(--color-bg);
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+/* ========= SIZES ========= */
+.btn-default-size {
+    height: 40px;
+    padding: 0 16px;
+}
+
+.btn-sm {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 13px;
+}
+
+.btn-lg {
+    height: 44px;
+    padding: 0 20px;
+    font-size: 15px;
+}
+
+.btn-icon {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+}
