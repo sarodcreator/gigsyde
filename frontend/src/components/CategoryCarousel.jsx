@@ -1,43 +1,48 @@
+// src/components/JobType.jsx
 import React from 'react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
-import { Button } from './ui/button';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { setSearchedQuery } from '@/redux/jobSlice';
-import "./ui/style/hero.css";
-const category = [
-    "Frontend Developer",
-    "Backend Developer",
-    "Data Science",
-    "Graphic Designer",
-    "FullStack Developer"
-]
+import { FaLaptopCode, FaBriefcase, FaUserTie, FaTools } from 'react-icons/fa';
+import Card from './card';
+import './ui/style/category.css';
 
-const CategoryCarousel = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const searchJobHandler = (query) => {
-        dispatch(setSearchedQuery(query));
-        navigate("/browse");
-    }
+const jobData = [
+  {
+    icon: FaLaptopCode,
+    title: 'Tech Jobs',
+    description: 'Explore opportunities in software development, IT, and tech support.',
+  },
+  {
+    icon: FaBriefcase,
+    title: 'Corporate Jobs',
+    description: 'Find roles in management, finance, and administrative positions.',
+  },
+  {
+    icon: FaUserTie,
+    title: 'Freelance Gigs',
+    description: 'Work independently on projects in design, writing, and more.',
+  },
+  {
+    icon: FaTools,
+    title: 'Skilled Trades',
+    description: 'Discover jobs in construction, plumbing, and other trades.',
+  },
+];
 
-    return (
-        <div>
-            <Carousel className="w-full max-w-xl mx-auto my-20">
-                <CarouselContent>
-                    {
-                        category.map((cat, index) => (
-                            <CarouselItem className="md:basis-1/2 lg-basis-1/3">
-                                <Button onClick={()=>searchJobHandler(cat)} variant="outline" className="rounded-full">{cat}</Button>
-                            </CarouselItem>
-                        ))
-                    }
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-            </Carousel>
-        </div>
-    )
-}
+const JobType = () => {
+  return (
+    <section className="job-type-container">
+      <h2>What type of job are you looking for?</h2>
+      <div className="job-cards">
+        {jobData.map((job, index) => (
+          <Card
+            key={index}
+            icon={job.icon}
+            title={job.title}
+            description={job.description}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
 
-export default CategoryCarousel
+export default JobType;

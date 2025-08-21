@@ -1,27 +1,61 @@
-import React from 'react'
-import { Badge } from './ui/badge'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Badge } from './ui/badge';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import './ui/style/latestjobs.css';
 
-const LatestJobCards = ({job}) => {
-    const navigate = useNavigate();
-    return (
-        <div onClick={()=> navigate(`/description/${job._id}`)} className='p-5 rounded-md shadow-xl bg-white border border-gray-100 cursor-pointer'>
-            <div>
-                <h1 className='font-medium text-lg'>{job?.company?.name}</h1>
-                <p className='text-sm text-gray-500'>India</p>
-            </div>
-            <div>
-                <h1 className='font-bold text-lg my-2'>{job?.title}</h1>
-                <p className='text-sm text-gray-600'>{job?.description}</p>
-            </div>
-            <div className='flex items-center gap-2 mt-4'>
-                <Badge className={'text-blue-700 font-bold'} variant="ghost">{job?.position} Positions</Badge>
-                <Badge className={'text-[#F83002] font-bold'} variant="ghost">{job?.jobType}</Badge>
-                <Badge className={'text-[#7209b7] font-bold'} variant="ghost">{job?.salary}LPA</Badge>
-            </div>
+const LatestJobCards = ({ job, index }) => {
+  const navigate = useNavigate();
 
+  // Placeholder logo URL based on company name
+  const logoUrl = job?.company?.name
+    ? `https://via.placeholder.com/50?text=${encodeURIComponent(job.company.name.slice(0, 2))}`
+    : 'https://via.placeholder.com/50';
+
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  console.log("Job Data in Card:", job); // Log job data for each card
+
+  return (
+    <motion.div
+      custom={index}
+      initial="hidden"
+      animate="visible"
+      variants={cardVariants}
+      transition={{ delay: index * 0.1 }}
+      onClick={() => navigate(`/description/${job._id}`)}
+      className="job-card"
+    >
+      <div className="job-card-header">
+        <img src={logoUrl} alt={`${job?.company?.name || 'Company'} logo`} className="company-logo" />
+        <div className="job-info">
+          <h1 className="job-title">{job?.title || 'Job Title Not Available'}</h1>
+          <p className="company-name">{job?.company?.name || 'Company Name Not Available'}</p>
+          <p className="location">India</p>
         </div>
-    )
-}
+      </div>
+      <div className="job-details">
+        <p className="description">
+          {job?.description || 'No description available. Click to learn more.'}
+        </p>
+      </div>
+      <div className="job-badges">
+        <Badge className="badge-positions" variant="ghost">
+          {job?.position || 1} Position{job?.position === 1 ? '' : 's'}
+        </Badge>
+        <Badge className="badge-salary" variant="ghost">
+          {job?.salary ? `${job.salary} LPA` : 'Salary Not Available'}
+        </Badge>
+        <Badge className="badge-type" variant="ghost">
+          {job?.jobType || 'Type Not Available'}
+        </Badge>
+      </div>
+    </motion.div>
+  );
+};
 
-export default LatestJobCards
+export default LatestJobCards;

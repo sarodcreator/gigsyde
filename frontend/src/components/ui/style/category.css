@@ -1,0 +1,53 @@
+/* src/components/JobType.css */
+.job-type-container {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.job-type-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.job-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* src/components/Card.css */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 250px;
+  margin: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}

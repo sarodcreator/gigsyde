@@ -1,82 +1,70 @@
-// import React from 'react'
-// import LatestJobCards from './LatestJobCards';
-// import { useSelector } from 'react-redux'; 
-
-// // const randomJobs = [1, 2, 3, 4, 5, 6, 7, 8];
-
-// const LatestJobs = () => {
-//     const {allJobs} = useSelector(store=>store.job);
-   
-//     return (
-//         <div className='max-w-7xl mx-auto my-20'>
-//             <h1 className='text-4xl font-bold'><span className='text-[#6A38C2]'>Latest & Top </span> Job Openings</h1>
-//             <div className='grid grid-cols-3 gap-4 my-5'>
-//                 {
-//                     allJobs.length <= 0 ? <span>No Job Available</span> : allJobs?.slice(0,6).map((job) => <LatestJobCards key={job._id} job={job}/>)
-//                 }
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default LatestJobs
-
 import React, { useEffect, useState } from 'react';
 import LatestJobCards from './LatestJobCards';
-import { useSelector } from 'react-redux'; 
+import { useSelector } from 'react-redux';
 
 const LatestJobs = () => {
-    const { allJobs } = useSelector(store => store.job);
-    const [externalJobs, setExternalJobs] = useState([]);
-    const [latestExternalJobs, setLatestExternalJobs] = useState([]);
+  const { allJobs } = useSelector((store) => store.job);
+  const [externalJobs, setExternalJobs] = useState([]);
+  const [latestExternalJobs, setLatestExternalJobs] = useState([]);
 
-    // Fetch external jobs
-    useEffect(() => {
-        const fetchExternalJobs = async () => {
-            try {
-                const res = await fetch("/api/externaljob"); // <-- from externalJob.route.js
-                const data = await res.json();
+  useEffect(() => {
+    const fetchExternalJobs = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/v1/externaljob/jobs");
+        const data = await res.json();
+        console.log("API Response Status:", res.status);
+        console.log("API Response:", data); // Log full response
 
-                if (Array.isArray(data)) {
-                    setExternalJobs(data);
+        if (data.jobs && Array.isArray(data.jobs)) {
+          setExternalJobs(data.jobs);
+          console.log("External Jobs:", data.jobs);
 
-                    // latest = jobs updated within last 2 mins
-                    const twoMinsAgo = new Date(Date.now() - 2 * 60 * 1000);
-                    const latest = data.filter(job => new Date(job.updatedAt) >= twoMinsAgo);
+          const twoMinsAgo = new Date(Date.now() - 2 * 60 * 1000);
+          const latest = data.jobs.filter((job) => {
+            const updatedAt = job.updatedAt ? new Date(job.updatedAt) : null;
+            return updatedAt && updatedAt >= twoMinsAgo;
+          });
+          setLatestExternalJobs(latest);
+          console.log("Latest External Jobs:", latest);
+        } else {
+          console.warn("Unexpected data format or no jobs:", data);
+          setExternalJobs([]);
+          setLatestExternalJobs([]);
+        }
+      } catch (err) {
+        console.error("Error fetching external jobs:", err.message, err.stack);
+        setExternalJobs([]);
+        setLatestExternalJobs([]);
+      }
+    };
 
-                    setLatestExternalJobs(latest);
-                }
-            } catch (err) {
-                console.error("Error fetching external jobs:", err);
-            }
-        };
+    fetchExternalJobs();
+    const interval = setInterval(fetchExternalJobs, 120000);
+    return () => clearInterval(interval);
+  }, []);
 
-        fetchExternalJobs();
-        const interval = setInterval(fetchExternalJobs, 120000); // refresh every 2 mins
-        return () => clearInterval(interval);
-    }, []);
+  const mergedJobs = [
+    ...allJobs.slice(0, 6),
+    ...externalJobs.sort(() => 0.5 - Math.random()).slice(0, 3),
+    ...latestExternalJobs.slice(0, 3),
+  ];
+  console.log("Merged Jobs:", mergedJobs);
+  console.log("All Jobs from Redux:", allJobs); // Log Redux data
 
-    // Merge jobs: admin + external (random + latest)
-    const mergedJobs = [
-        ...allJobs.slice(0, 6),  // admin jobs
-        ...externalJobs.sort(() => 0.5 - Math.random()).slice(0, 3), // 3 random external
-        ...latestExternalJobs.slice(0, 3) // 3 latest external
-    ];
-
-    return (
-        <div className="latest-jobs-container">
-            <h1 className="heading">
-                <span className="highlight">Latest & Top </span> Job Openings
-            </h1>
-            <div className="job-grid">
-                {
-                    mergedJobs.length <= 0 
-                        ? <span>No Job Available</span> 
-                        : mergedJobs.map((job) => <LatestJobCards key={job._id} job={job} />)
-                }
-            </div>
-        </div>
-    );
+  return (
+    <div className="latest-jobs-container">
+      <h1 className="heading">
+        <span className="highlight">Latest & Top </span> Job Openings
+      </h1>
+      <div className="job-grid">
+        {mergedJobs.length <= 0 ? (
+          <span>No Job Available</span>
+        ) : (
+          mergedJobs.map((job, index) => <LatestJobCards key={job._id} job={job} index={index} />)
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default LatestJobs;

@@ -1,0 +1,46 @@
+.scams-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.scams-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #040403;
+}
+
+.scams-title .highlight {
+  color: #5B7553;
+}
+
+.scams-carousel {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.scam-card {
+  background: #f4fdff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin: 10px;
+  text-align: left;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scam-logo {
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.scam-card p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
+}
