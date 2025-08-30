@@ -2,28 +2,29 @@ import React from "react";
 import Slider from "react-slick";
 import TestimonialCard from "./TestimonialCard";
 import "./ui/style/testimonial.css";
+import { Button } from './ui/button';
 
-// Unsplash profile image links (placeholders)
-import Image1 from "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200";
-import Image2 from "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200";
-import Image3 from "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200";
-import Image4 from "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200";
-import Image5 from "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200";
-import Image6 from "https://images.unsplash.com/photo-1503467913725-848e6ef8c1e5?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200";
-import Image7 from "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200";
+// Unsplash profile image links (placeholdeImage from "../images/Heroimage.jpg";
+import Image1 from "../images/Heroimage1.jpg";
+import Image2 from "../images/Heroimage1.jpg";
+import Image3 from "../images/Heroimage1.jpg";
+import Image4 from "../images/Heroimage1.jpg";
+import Image5 from "../images/Heroimage1.jpg";
+import Image6 from "../images/Heroimage1.jpg";
+import Image7 from "../images/Heroimage1.jpg";
 
 const testimonials = [
   {
     name: "Hollie T.",
     role: "Hired at CVS Health",
-    text: "I preferred FlexJobs over other job sites because FlexJobs had resources for resume development.",
+    text: "I preferred Gigsyde over other job sites because FlexJobs had resources for resume development.",
     rating: 4.6,
     img: Image1,
   },
   {
     name: "John Doe",
     role: "Hired at Tech Corp",
-    text: "FlexJobs made finding a remote job so much easier with its verified listings.",
+    text: "Gigsyde made finding a remote job so much easier with its verified listings.",
     rating: 4.5,
     img: Image2,
   },
@@ -86,7 +87,7 @@ const Testimonials = () => {
         breakpoint: 1024, // Tablet and above
         settings: {
           slidesToShow: 1,
-          autoplay: false, // No autoplay on larger screens
+          autoplay: true, // No autoplay on larger screens
         },
       },
     ],
@@ -95,12 +96,13 @@ const Testimonials = () => {
   return (
     <div className="testimonials-section">
       <h2>What Our Members Are Saying</h2>
-      <div className="rating">4.6 ★★★★★ + 14,000 Reviews</div>
+      <div className="rating"><span className='TesRatingspan'>4.6 </span><span className='ratingstars'>★★★★★</span> + 14,000 Reviews</div>
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => (
           <TestimonialCard key={index} {...testimonial} />
         ))}
       </Slider>
+      <Button className='testimonialBtn'>Discover Remote Jobs</Button>
     </div>
   );
 };

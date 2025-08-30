@@ -4,7 +4,7 @@ import HeroSection from './HeroSection'
 import Trustees from './Trustees';
 import CategoryCarousel from './CategoryCarousel'
 import LatestJobs from './LatestJobs'
-import About from './About'
+//import About from './About'
 import Testimonial from './Testimonial'
 import AvoidScams from './Avoidscam'
 import Footer from './shared/Footer'

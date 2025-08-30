@@ -1,5 +1,5 @@
 :root {
-    --color-grey: #525252ff;
+    --color-grey: #777777;
 }
 
 .heroSection {
@@ -11,6 +11,7 @@
     height: auto;
     box-sizing: border-box;
     align-items: center;
+    padding: 40px 100px;
 }
 .hero-l {
     width: 100%;
@@ -22,6 +23,7 @@
     color: var(--color-tertiary);
     font-family: Arial, Sans-serif;
     margin: 0;
+    text-align: left;
 }
 .herospan {
     color: var(--color-bg);
@@ -39,6 +41,7 @@
  .hero-l p{
     font-size: 16px;
     color: var(--color-grey);
+    font-family: Arial, Sans-serif;
  }
  .search {
     width: 80%;
@@ -74,3 +77,55 @@
     border-right: 8px solid var(--color-bg);
     border-top: 16px solid var(--color-tertiary);
  }
+  
+
+ @media (max-width: 768px) {
+    .heroSection {
+        flex-direction: column-reverse;
+        padding: 0 16px;
+        margin-top: 16px;
+        gap: 16px;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-weight: 500;
+        font-size: 22px !important;
+    }
+    .herospan {
+        font-size: 40px;
+    }
+    .search {
+        width: 100%;
+    }
+    .hero-l p {
+        font-size: 14px;
+        margin-top: 16px;
+        line-height: 18px;
+        color: #666666;
+        font-weight: 400;
+    }
+    .heroImage img {
+        border-radius: 0;
+        border: none;
+        margin: 0 -16px;
+        object-fit: cover;
+    }
+    .trustedcompanies {
+        padding: 24px 16px !important;
+        /* background-color: var(--color-secondary teal !important; */
+    }
+    .companiesLogos {
+        height: 32px !important;
+    }
+    .companiescontainer {
+        padding: 24px 0 !important;
+    }
+    .companiesAnimation {
+        gap: 40px !important;
+        transition-duration:10 !important;
+    }
+ }
+
+ 

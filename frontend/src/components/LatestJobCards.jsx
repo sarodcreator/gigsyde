@@ -36,13 +36,12 @@ const LatestJobCards = ({ job, index }) => {
           <h1 className="job-title">{job?.title || 'Job Title Not Available'}</h1>
           <p className="company-name">{job?.company?.name || 'Company Name Not Available'}</p>
           <p className="location">India</p>
+          <p className="description">
+            {job?.description || 'No description available. Click to learn more.'}
+          </p>
         </div>
       </div>
-      <div className="job-details">
-        <p className="description">
-          {job?.description || 'No description available. Click to learn more.'}
-        </p>
-      </div>
+
       <div className="job-badges">
         <Badge className="badge-positions" variant="ghost">
           {job?.position || 1} Position{job?.position === 1 ? '' : 's'}

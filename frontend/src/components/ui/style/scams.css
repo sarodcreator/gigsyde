@@ -5,42 +5,57 @@
 }
 
 .scams-title {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #040403;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: var(--color-tertiary);
 }
 
-.scams-title .highlight {
-  color: #5B7553;
+.scams-title .scamhighlight {
+  color: var(--color-bg);
 }
-
 .scams-carousel {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
+  gap: 16px !important;
+  display: grid !important;
+  grid-template-columns: auto auto !important;
+  grid-gap: 16px !important;
+  
 }
-
+.slick-arrow {
+  background: transparent;
+  border: 1px solid var(--color-grey);
+  display: block;
+}
+.slick-prev, .slick-next{
+  color: var(--color-black) !important;
+}
 .scam-card {
-  background: #f4fdff;
-  border: 1px solid #e0e0e0;
+  background: transparent;
+  border: 1px solid var(--color-grey);
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  margin: 10px;
+  padding: 24px;
   text-align: left;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  box-sizing: border-box;
+  display: flex !important;
+  gap: 24px !important;
+  overflow: hidden;
 }
-
+.scam-card p {
+  color: var(--color-black);
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
 .scam-logo {
   height: 30px;
-  margin-bottom: 15px;
+  margin: 24px auto 48px !important;
+  justify-self: center;
 }
 
 .scam-card p {
-  font-size: 15px;
-  color: #333;
   line-height: 1.5;
+  
 }

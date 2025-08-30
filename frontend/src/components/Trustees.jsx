@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import './ui/style/hero.css';
 
 const Trustees = () => {
   const [logos, setLogos] = useState([]);
@@ -61,15 +62,16 @@ const Trustees = () => {
   }, []);
 
   return (
-	  <div style={{ display: "flex",  width: "100%", gap: "0", background: "#f9f9f9", alignItems: "center" }}>
-	  <div style={{ padding: "24px", width:"15%", backgroundImage: "linear-gradient(90deg, #ff3c00, #f9f9f9" }}>
-	  <h2 style={{ color: "#fcfcfc", fontSize: "24px", fontFamily: "Arial, sans-serif" }}>Top Companies</h2>
+	  <div className='trustedcompanies' style={{ display: "flex",  flexDirection: "column", width: "100%", gap: "0", background: "#f9f9f9", boxSizing: 'border-box', alignItems: "center", padding: "40px 100px 80px" }}>
+	  <div className='companiescontainer' style={{ padding: "24px", width:"100%", }}>
+	  <h2 className='trustedCompaniesheader' style={{ color: "#00455aff", fontSize: "32px", textAlign: "center", fontFamily: "Arial, sans-serif", fontWeight: "700" }}>Top Companies hiring remote jobs</h2>
 	  </div>
-    <div style={{ overflow: "hidden", width: "85%", background: "transparent", padding: "24px 0" }}>
+    <div className='trustedslide' style={{ overflow: "hidden", width: "100%", background: "transparent", padding: "0" }}>
       <motion.div
         style={{ display: "flex", gap: "80px" }}
         animate={{ x: ["0%", "-100%"] }}
         transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+        className='companiesAnimation'
       >
         {logos.concat(logos).map((logo, index) => (
           <img
@@ -78,6 +80,7 @@ const Trustees = () => {
             alt="company logo"
             style={{ height: "48px", objectFit: "contain" }}
             onError={(e) => { e.target.style.display = 'none'; }}
+            className="companiesLogos"
           />
         ))}
       </motion.div>

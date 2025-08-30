@@ -44,10 +44,10 @@ const Navbar = () => {
         {!user && (
           <div className="auth-buttons">
             <Link to="/login">
-              <Button variant="ghost">Login</Button>
+              <Button className='loginBtn' variant="ghost">Login</Button>
             </Link>
             <Link to="/signup">
-              <Button>Signup</Button>
+              <Button className='signupBtn'>Signup</Button>
             </Link>
           </div>
         )}

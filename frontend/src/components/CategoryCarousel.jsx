@@ -2,6 +2,7 @@
 import React from 'react';
 import { FaLaptopCode, FaBriefcase, FaUserTie, FaTools } from 'react-icons/fa';
 import Card from './card';
+import { Button } from './ui/button'
 import './ui/style/category.css';
 
 const jobData = [
@@ -30,7 +31,7 @@ const jobData = [
 const JobType = () => {
   return (
     <section className="job-type-container">
-      <h2>What type of job are you looking for?</h2>
+      <h1>What type of remote job are you looking <br />for?</h1>
       <div className="job-cards">
         {jobData.map((job, index) => (
           <Card
@@ -41,6 +42,7 @@ const JobType = () => {
           />
         ))}
       </div>
+      <Button>Find jobs for you</Button>
     </section>
   );
 };

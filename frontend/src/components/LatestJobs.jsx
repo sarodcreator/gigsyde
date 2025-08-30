@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LatestJobCards from './LatestJobCards';
 import { useSelector } from 'react-redux';
+import './ui/style/latestjobs.css';
 
 const LatestJobs = () => {
   const { allJobs } = useSelector((store) => store.job);
@@ -54,7 +55,7 @@ const LatestJobs = () => {
   return (
     <div className="latest-jobs-container">
       <h1 className="heading">
-        <span className="highlight">Latest & Top </span> Job Openings
+        Recent <span className="highlight">Job</span> Listings from Companies
       </h1>
       <div className="job-grid">
         {mergedJobs.length <= 0 ? (
