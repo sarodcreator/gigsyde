@@ -61,3 +61,23 @@
   font-weight: 400;
   font-family: Arial, sans-serif;
 }
+
+@media (max-width: 768px) {
+	.job-type-container {
+		padding: 40px 16px !important;
+	}
+	.job-type-container h1 {
+		font-size: 24px;
+	}
+	.job-cards{
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.card {
+		margin: 0;
+	}
+	.job-type-container button {
+		margin-top: 32px;
+	}
+}
