@@ -1,17 +1,25 @@
 import React from "react";
+import { FaQuoteLeft, /*FaQuoteRight*/ } from 'react-icons/fa';
 
-const TestimonialCard = ({ name, role, text, rating, img }) => {
+const TestimonialCard = ({ title, text, author }) => {
   return (
-    <div className="testimonial-card">
-      <p className="testimonial-text">{text}</p>
-      <div className="review-from">
-        <div className="reviewer-info">
-          <h4 className="reviewer-name">{name}</h4>
-          <p className="reviewer-role">{role}</p>
-        </div>
-        <img src={img} alt={`${name}'s profile`} className="reviewer-img" />
-      </div>
-    </div>
+	  <div className="testimonial-card">
+		  <div className="card-background">
+			  <FaQuoteLeft />
+		  </div> 
+		  <div className="reviewfrom">
+			  <FaQuoteLeft />
+		  </div>
+		  <div>
+			  <h2 id="testimonial-title">What they say</h2>
+			  <div className="testimonial-card-divider"></div>
+			  <p>{text}</p>
+			  <p className='author'>{author}</p>
+		  </div>
+		  {/* <div className="reviewfrom">
+			  <FaQuoteRight />
+		  </div> */}
+	  </div>
   );
 };
 
