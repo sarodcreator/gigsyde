@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import TestimonialCard from "./TestimonialCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./ui/style./testimonial.css";
+import "./ui/style/testimonial.css";
 
 const testimonials = [
   {
@@ -43,7 +43,7 @@ const Testimonials = () => {
 
   return (
     <div className="review-sec">
-      
+     <h1 className='testimonialheading'>Hear from our Users</h1> 
       <div className="testimonials-section">
         <Slider {...settings}>  {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} />

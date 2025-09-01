@@ -9,7 +9,7 @@
 .scams-section {
   text-align: center;
   padding: 40px 100px;
-  background: #fff;
+  background: var(--color-text);
   font-family: Arial, sans-serif; /* Explicit font to avoid garbling */
 }
 
@@ -28,25 +28,16 @@
 /* Carousel wrapper */
 .carousel-wrapper {
   position: relative;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-  align-items: center;
 }
 
 /* Carousel container */
 .scams-carousel {
   display: flex;
   transition: transform 0.5s ease;
-  max-width: 1000px;
-  overflow: hidden;
-  box-sizing: border-box;
-  justify-content: flex-start;
-  align-items: center;
+  width: 100%;
 }
 
 /* Card styling */
@@ -59,11 +50,12 @@
   box-sizing: border-box;
   display: flex;
   gap: 24px;
-  overflow: visible;
+  overflow: hidden;
   min-width: 250px;
   align-items: center;
   flex: 0 0 auto;
   margin: 0 8px;
+  height: 80px;
 }
 
 /* Text styling */
@@ -77,36 +69,36 @@
 
 /* Logo styling */
 .scam-logo {
-  height: 30px;
+  height: 32px;
   margin: 0 0 8px;
 }
 
 /* Navigation buttons */
 .prev-btn, .next-btn {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
   border: 1px solid #ccc;
   color: #333;
   font-size: 18px;
-  padding: 16px;
+  padding: 10px;
   cursor: pointer;
   z-index: 1;
-  margin: auto 0;
 }
 
 .prev-btn {
-  left: 10;
+  left: 10px;
 }
 
 .next-btn {
-  right: 10;
+  right: 10px;
 }
 
 /* Mobile-specific styles */
 @media (max-width: 768px) {
   .scams-section {
-    padding: 20px 16px;
+    padding: 40px 16px;
   }
 
   .scams-title {
@@ -116,22 +108,22 @@
 
   .carousel-wrapper {
     max-width: 100%;
+    margin: 0 auto;
   }
 
   .scams-carousel {
     flex-direction: column;
-    display: flex;
-    gap: 8px !important;
+    gap: 8px;
   }
 
   .scam-card {
-    padding: 16px;
+    padding: 12px;
     gap: 16px;
     min-width: 100%;
     flex-direction: row;
-    align-items: flex-start;
-    margin: 0;
     align-items: center;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .scam-card p {
@@ -140,8 +132,9 @@
   }
 
   .scam-logo {
-    height: 20px;
-    margin: 0 0 8px;
+    height: 24px;
+    margin: auto 0;
+    align-self: center;
   }
 
   .prev-btn, .next-btn {
