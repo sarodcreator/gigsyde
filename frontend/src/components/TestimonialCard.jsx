@@ -1,5 +1,6 @@
 import React from "react";
 import { FaQuoteLeft, /*FaQuoteRight*/ } from 'react-icons/fa';
+import './ui/style/testimonial.css';
 
 const TestimonialCard = ({ title, text, author }) => {
   return (
@@ -11,8 +12,9 @@ const TestimonialCard = ({ title, text, author }) => {
 			  <FaQuoteLeft />
 		  </div>
 		  <div>
-			  <div className="testimonial-card-divider"></div>
+			  
 			  <p>{text}</p>
+        <div className="testimonialdivider"></div>
 			  <p className='author'>{author}</p>
 		  </div>
 		  {/* <div className="reviewfrom">

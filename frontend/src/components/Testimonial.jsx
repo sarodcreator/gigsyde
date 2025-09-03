@@ -26,16 +26,20 @@ const testimonials = [
 
 const Testimonials = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: 'linear',
     responsive: [
       {
         breakpoint: 768, // Mobile view
         settings: {
           slidesToShow: 1,
+          autoplaySpeed: 5000,
         },
       },
     ],
@@ -45,7 +49,7 @@ const Testimonials = () => {
     <div className="review-sec">
      <h1 className='testimonialheading'>Hear from our Users</h1> 
       <div className="testimonials-section">
-        <Slider {...settings}>  {testimonials.map((testimonial, index) => (
+        <Slider {...settings} className="testimonialSlide"> {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} />
           ))}
         </Slider>

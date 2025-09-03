@@ -94,7 +94,9 @@
 .next-btn {
   right: 10px;
 }
-
+.scamsBtn {
+  width: 50%;
+}
 /* Mobile-specific styles */
 @media (max-width: 768px) {
   .scams-section {
@@ -140,7 +142,8 @@
   .prev-btn, .next-btn {
     display: none; /* Hide buttons on mobile for now */
   }
+  .scamsBtn {
+    width: 100% !important;
+  }
 }
-.scamsBtn {
-	width: 100%;
-}
+

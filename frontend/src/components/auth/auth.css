@@ -1,0 +1,182 @@
+.signup-sec {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.left-secImg{
+    width: 70%;
+    padding: 24px 100px 50px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0,0,0,0.9)), url(../images/black-man-city.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 768px;
+    display: flex;
+    gap: 16px !important;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+.left-secImg h1, .left-secImg p, .left-secImg .reviews {
+    font-family: 'Open Sans', serif;
+}
+.left-secImg h1{
+    color: #fcfcfc;
+    font-weight: 600;
+    font-size: 56px;
+    align-items: end;
+    width: 90%;
+    margin-bottom: 0;
+    font-family: 'Open Sans', serif;
+}
+.left-secImg p{
+    color: #d3d3d3;
+    font-size: 16px;
+    line-height: 24px;
+}
+.reviews {
+    display: flex;
+    align-items: center;
+}
+.users-no {
+    color: #fcfcfc;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Open Sans', serif;
+    margin-left: 8px;
+}
+.review {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #fcfcfc;
+    margin-left: -10px;
+}
+.r-sec {
+    width: 40%;
+    padding: 40px;
+    padding-right: 50px !important;
+    align-items: center;
+}
+form {
+    margin-top: 60px;
+    color: #121212;
+}
+.logo {
+    font-weight: 600;
+    font-size: 24px;
+    color: #1c3f3f;
+    font-family: 'Limelight', serif;
+}
+span{
+    color: #a7d3e0;
+}
+.form-data{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 16px;
+}
+.form-data label {
+    color: #121212;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Open Sans', serif;
+}
+.form-data input {
+    height: 40px;
+    outline: none;
+    border: 1.5px solid #aaaaaa;
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.form-data input:focus {
+    outline: 1px solid #121212;
+}
+.form-data input::placeholder {
+    color: #aaaaaa;
+}
+form h1 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+.options {
+    font-size: 14px;
+    align-items: center;
+    display: flex;
+    gap: 4px;
+}
+.interest h3 {
+    margin: 16px 0 -4px 0;
+}
+.option {
+    display: flex;
+    gap: 24px;
+    margin-bottom:4px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    align-items: center;
+}
+.t {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Open sans', serif;
+}
+.img-selector {
+    color: #fcfcfc;
+    margin: 10px 0 4px;
+}
+.profiles {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color:rgba(18, 18, 18, 0.76);
+    margin-top: 16px;
+    color: #fcfcfc;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.profiles label{
+    margin-top: 16px;
+    font-weight: 500;
+
+}
+.text-p {
+    font-size: 48px;
+    color: #fcfcfc;
+}
+.reverse {
+    flex-direction: row-reverse !important;
+}
+.button {
+    margin-top: 40px;
+    background-color: #121212;
+    color: #fcfcfc;
+    padding: 16px 24px;
+    width: 100%;
+    border-radius: 8px;
+}
+.button:hover{
+    background-color: #1c3f3f;
+    cursor: pointer;
+    transition: .5;
+}
+.login-link {
+    color: #727272;
+    font-size: 12px;
+    text-align: center;
+}
+.login-link .login-btnlink {
+    text-decoration: none;
+    cursor: pointer;
+    color: #727272;
+}
+.login-btnlink:hover{
+    text-decoration: underline;
+    color:#121212;
+}
